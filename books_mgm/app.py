@@ -29,6 +29,9 @@ def regi_book_exe():
 def edit_book():
     return render_template('editser.html')
 
+@app.route('/rbook')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
     
