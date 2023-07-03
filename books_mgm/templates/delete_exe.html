@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('delete_book_exe')}}" method="post">
+    <p>この本を削除しますか？</p>
+    <p>id:<input type="test" name="id" value="{{id}}" Readonly></p><br>
+    <p>タイトル:{{title}}</p>
+    
+    <button type="submit">削除</button>
+    <a class="nav-link" href="disbook">戻る</a>
+</form>
+</body>
+</html>

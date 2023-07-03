@@ -21,7 +21,7 @@ def dis_all_book():
     connection = get_connection()
     cursor = connection.cursor()
     
-    sql = 'SELECT title, author, publisher, pages FROM books_python1'
+    sql = 'SELECT id, title, author, publisher, pages FROM books_python1'
     
     cursor.execute(sql)
     rows = cursor.fetchall()
@@ -30,13 +30,26 @@ def dis_all_book():
     connection.close()
     return rows
 
-
-def edit_book(title, author, publisher, pages,id):
+def delete_book(id):
     connection = get_connection()
     cursor = connection.cursor()
-    sql ="UPDATE books_python1 SET title = %s, author = %s, publisher = %s, pages = %s, WHERE id = %s"
     
-    cursor.execute(sql,(title,author, publisher,pages,id))
+    sql = "DELETE FROM books_python1 WHERE id = %s"
+    
+    cursor.execute(sql,(id,))
+    
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+
+def edit_book(id, title, author, publisher, pages):
+    connection = get_connection()
+    cursor = connection.cursor()
+    
+    sql ="UPDATE books_python1 SET title = %s, author = %s, publisher = %s, pages = %s WHERE id = %s"
+    
+    cursor.execute(sql,(title, author, publisher, pages, id))
     
     connection.commit()
     cursor.close()
