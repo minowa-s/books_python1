@@ -63,6 +63,18 @@ def edit_book_exe():
     
     return render_template('editsucb.html')
 
+@app.route('/search_book')
+def search_book():
+    
+    key = request.form.get('key')
+
+    db.search_book(key)
+    
+    search_list = db.search_book
+    
+    return render_template('search_list.html' ,search= search_list)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

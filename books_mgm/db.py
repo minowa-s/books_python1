@@ -55,4 +55,21 @@ def edit_book(id, title, author, publisher, pages):
     cursor.close()
     connection.close()
     
-
+def search_book():
+    connection = get_connection()
+    cursor = connection.cursor()
+    
+    sql = "SELECT * FROM books_python1 WHERE title LIKE %s"
+    key = "%" + key +"%"
+    cursor.execute(sql,(key,))
+    
+    rows = cursor.fetchall()
+    
+    title_list = []
+    for row in rows:
+        title_list.append([row[1]])
+        
+    cursor.close()
+    connection.close()
+    
+    return title_list
