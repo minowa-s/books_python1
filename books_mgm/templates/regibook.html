@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/regibook.css')}}">
+    <title>図書登録</title>
 </head>
 <body>
-    <h1>登録</h1>
+    <header>
+    <h1>登録データ登録</h1>
+    </header>
     <form action="{{url_for('regi_book_exe')}}" method="post">
-      タイトル：<input type="text" name="title"><br>
-      著者：<input type="text" name="author"><br>
-      出版社：<input type="text" name="publisher"><br>
-      ページ数：<input type="number" name="pages"><br>
-      <button type="submit">登録</button>
-    </form>
+      <div class="mb-1">
+      <label for="exampleInputEmail1" class="form-label">タイトル</label>
+      <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" text-align= "center"><br>
+      </div>
+
+      <div class="mb-2">
+      <label for="exampleInputEmail1" class="form-label">著者</label>
+      <input type="text" name="author" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
+     </div>
+
+     <div class="mb-3">
+     <label for="exampleInputEmail1" class="form-label">出版社</label>
+      <input type="text" name="publisher" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
+     </div>
+
+     <div class="mb-4">
+     <label for="exampleInputEmail1" class="form-label">ページ数</label>
+     <input type="number" name="pages" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
+     </div>
+     <footer>
+      <button type="submit" class="btn btn-primary">登録</button>
+   
     <a class="nav-link" href="{{url_for('menu_top')}}">戻る</a>
+    </footer>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
